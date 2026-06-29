@@ -19,10 +19,10 @@ namespace aplicacion.Services
             conn.Open();
 
             string sql =
-                @"SELECT COUNT(*)
+                 @"SELECT COUNT(*)
                   FROM tb_credencial
-                  WHERE USUARIO=@usr
-                  AND PASWORD=@pwd";
+                  WHERE usuario=@usr
+                  AND password=@pwd";
 
             using var cmd = new MySqlCommand(sql, conn);
 

@@ -2,7 +2,7 @@
 using aplicacion.Models;
 using aplicacion.Services;
 
-namespace app_to_do.Controllers
+namespace aplicacion.Controllers
 {
     public class AccountController : Controller
     {
@@ -20,15 +20,14 @@ namespace app_to_do.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(LogingViewModel model)
+        public IActionResult Login(LoginViewModel model)
         {
             if (!ModelState.IsValid)
                 return View(model);
 
-            bool valido =
-                _authService.ValidarUsuario(
-                    model.Email,
-                    model.Password);
+            bool valido = _authService.ValidarUsuario(
+                model.Usuario.Trim(),
+                model.Password.Trim());
 
             if (valido)
                 return RedirectToAction("Welcome");

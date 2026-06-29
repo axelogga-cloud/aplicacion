@@ -10,13 +10,11 @@
         const password =
             document.getElementById("password").value.trim();
 
-        const emailRegex =
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailRegex.test(usuario)) {
+        // Validamos que el usuario no vaya vacío (aceptando texto común)
+        if (usuario.length === 0) {
 
             alert(
-                "Debe capturar un correo electrónico válido."
+                "Debe capturar el usuario."
             );
 
             e.preventDefault();
